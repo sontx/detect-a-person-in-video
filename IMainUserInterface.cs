@@ -1,6 +1,9 @@
-﻿namespace detect_a_person_in_video
+﻿using System.Collections.Generic;
+
+namespace detect_a_person_in_video
 {
-    interface IMainUserInterface : ILogable, IInputDisplayable
+    interface IMainUserInterface : IUserInterface, IInputDisplayable
     {
+        void DisplayProcessResult(List<DetectionResult> detectionResults);
     }
 }

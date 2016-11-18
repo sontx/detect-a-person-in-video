@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Accord.Video.FFMPEG;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace detect_a_person_in_video
@@ -19,7 +22,7 @@ namespace detect_a_person_in_video
             {
                 string fileName = openVideoFileDialog.FileName;
                 txtVideoInput.Text = fileName;
-                mainUIHandler.VideoInputPath = fileName;   
+                mainUIHandler.VideoInputPath = fileName;
             }
         }
 
@@ -29,8 +32,13 @@ namespace detect_a_person_in_video
             {
                 string fileName = openFaceFileDialog.FileName;
                 txtFaceInput.Text = fileName;
-                mainUIHandler.ImageInputPath = fileName;          
+                mainUIHandler.ImageInputPath = fileName;
             }
+        }
+
+        private void btnProcess_Click(object sender, EventArgs e)
+        {
+            mainUIHandler.Process();
         }
 
         private void WriteLog(string message)
@@ -59,7 +67,25 @@ namespace detect_a_person_in_video
             playerVideoInput.URL = videoPath;
         }
 
-        #endregion
+        public DialogResult ShowMessageBox(string message, MessageBoxIcon icon, MessageBoxButtons buttons)
+        {
+            if (InvokeRequired)
+            {
+                DialogResult result = DialogResult.Cancel;
+                Invoke((MethodInvoker)delegate { result = MessageBox.Show(this, message, Text, buttons, icon); });
+                return result;
+            }
+            else
+            {
+                return MessageBox.Show(this, message, Text, buttons, icon);
+            }
+        }
 
+        public void DisplayProcessResult(List<DetectionResult> detectionResults)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

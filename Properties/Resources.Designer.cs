@@ -61,12 +61,30 @@ namespace detect_a_person_in_video.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to fc68eeb2a1314f6a873f18d0d76f2448.
+        /// </summary>
+        internal static string face_api_subscription_key {
+            get {
+                return ResourceManager.GetString("face_api_subscription_key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 910555097ba5465fb433572e242ab35a.
+        /// </summary>
+        internal static string video_api_subscription_key {
+            get {
+                return ResourceManager.GetString("video_api_subscription_key", resourceCulture);
             }
         }
     }
