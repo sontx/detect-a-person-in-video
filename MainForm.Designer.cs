@@ -94,6 +94,7 @@
             this.btnVideoInput.TabIndex = 3;
             this.btnVideoInput.Text = "...";
             this.btnVideoInput.UseVisualStyleBackColor = true;
+            this.btnVideoInput.Click += new System.EventHandler(this.btnVideoInput_Click);
             // 
             // btnFaceInput
             // 
@@ -104,6 +105,7 @@
             this.btnFaceInput.TabIndex = 3;
             this.btnFaceInput.Text = "...";
             this.btnFaceInput.UseVisualStyleBackColor = true;
+            this.btnFaceInput.Click += new System.EventHandler(this.btnFaceInput_Click);
             // 
             // openVideoFileDialog
             // 
@@ -125,12 +127,13 @@
             // 
             // txtLog
             // 
+            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLog.Location = new System.Drawing.Point(429, 3);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(421, 437);
+            this.txtLog.Size = new System.Drawing.Size(421, 551);
             this.txtLog.TabIndex = 5;
             // 
             // pbxFaceInput
