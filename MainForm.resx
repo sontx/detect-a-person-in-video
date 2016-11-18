@@ -117,8 +117,69 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="openVideoFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="openFaceFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>182, 17</value>
+  </metadata>
+  <data name="playerVideoInput.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAtwAAAAIB
+        AAAAAQAAAAAAAAAAAAAAAKIAAAAAAwAACAAAAAAABQAAAAAAAADwPwMAAAAAAAUAAAAAAAAAAAAIAAIA
+        AAAAAAMAAQAAAAsA//8DAAAAAAALAP//CAACAAAAAAADADIAAAALAAAACAAKAAAAZgB1AGwAbAAAAAsA
+        AAALAAAACwD//wsA//8LAAAACAACAAAAAAAIAAIAAAAAAAgAAgAAAAAACAACAAAAAAALAAAAwAcAAGEC
+        AAAL
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAEBAAAAEACABoBQAAJgAAABAQAAABACAAaAQAAI4FAAAoAAAAEAAAACAAAAABAAgAAAAAAEAB
+        AAAAAAAAAAAAAAABAAAAAAAAAAAAAP///wA4xqcAXdG4ANr07gB92sYAuevgALXq3gCZ4tIAX9K5APX8
+        +gBq1b4A1PPsAMrw6ABAyasAUs6zAP7//wBi0rkAPsiqAFTOswCE3MkAzvHpAJXh0ACi5dYAuOvgAO76
+        9wCt6NsA4PbxAJri0gA9yKkA/P7+AOv59gDD7uUAc9fBADjEpQC+7OIAZ9S8ADfAogA4w6QANr6gADjG
+        pwA4xqcAOMOkADjGpwA4xqcAOManADjEpQA3wKIAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjG
+        pwC+7OIAouXWAITcyQBn1LwAQMmrADjGpwA4xKUAN8CiADjGpwA4xqcAOManADjGpwA4xqcAOManADjG
+        pwA4xqcA////APz+/gDr+fYA2vTuAMPu5QBz18EAOManADjEpQA4xqcAOManADjGpwA4xqcAOManADjG
+        pwA4xqcAOManAP///wD///8A////AP///wD///8A4PbxAJri0gA9yKkAOManADjGpwA4xqcAOManADjG
+        pwA4xqcAOManADjGpwCi5dYAuOvgAMrw6ADu+vcA////AP///wD///8ArejbAD7IqgA4xqcAOManADjG
+        pwA4xqcAOManADjGpwA4xqcAOManAD7IqgBUzrMAhNzJAM7x6QD///8A////AP///wCV4dAAOManADjG
+        pwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwBSzrMAuevgAP///wD///8A/v//AGLS
+        uQA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwDU8+wA////AP//
+        /wDK8OgAQMmrADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAX9K5APX8
+        +gD///8A////AGrVvgA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjG
+        pwC16t4A////AP///wCZ4tIAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjG
+        pwA4xqcAfdrGAP///wD///8AuevgADjGpwA4xqcAOManADjGpwA4xqcAOManADjGpwA4xqcAOManADjG
+        pwA4xqcAOManAF3RuAD///8A////ANr07gA4xqcAOManADjGpwA4xqcAOManAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4lHIA+E5aACwh
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIiAgIC
+        AgICAgICAgICAgICJwICAgICAgICAgICAgICAiYCAgIiJQICAgICAgICIxcUJA4CIiUCAgICAgICAgEe
+        HwQgIQIiAgICAgICAgIBAQEBARscHQICAgICAgICFxgNGQEBARoSAgICAgICAgISExQVAQEBFgICAgIC
+        AgICAgICDwYBARARAgICAgICAgICAgICDAEBDQ4CAgICAgICAgICAgkKAQELAgICAgICAgICAgICBwEB
+        CAICAgICAgICAgICAgUBAQYCAgICAgICAgICAgIDAQEEAgICAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAABAAAAAgAAAAAQAgAAAA
+        AABABAAAAAAAAAAAAAAAAAAAAAAAADjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xKX+OMan/zjGp/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/Nr6g/DjGp/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjDpP44xqf/OMan/zjG
+        p/84xKX/N8Ci/jjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/vuzi/6Ll1v+E3Mn/Z9S8/0DJ
+        q/84xqf/OMSl/zfAov84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan///////8/v7/6/n2/9r0
+        7v/D7uX/c9fB/zjGp/84xKX/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp///////////////
+        /////////////+D28f+a4tL/Pcip/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/ouXW/7jr
+        4P/K8Oj/7vr3/////////////////63o2/8+yKr/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjG
+        p/8+yKr/VM6z/4Tcyf/O8en/////////////////leHQ/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/Us6z/7nr4P////////////7///9i0rn/OMan/zjGp/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/1PPs////////////yvDo/0DJq/84xqf/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/1/Suf/1/Pr///////////9q1b7/OMan/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/tere////////////meLS/zjG
+        p/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/33axv///////////7nr
+        4P84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/84xqf/OMan/zjGp/9d0bj/////////
+        ///a9O7/OMan/zjGp/84xqf/OMan/zjGp/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</value>
   </data>
 </root>
