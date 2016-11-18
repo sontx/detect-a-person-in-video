@@ -113,7 +113,7 @@
             // 
             // openFaceFileDialog
             // 
-            this.openFaceFileDialog.Filter = "Image files|*.jpeg, *.jpg, *.png, *.bmp,*.gif";
+            this.openFaceFileDialog.Filter = "Image files |*.jpeg; *.jpg; *.png; *.bmp;*.gif";
             // 
             // btnProcess
             // 
