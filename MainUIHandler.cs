@@ -67,20 +67,33 @@ namespace detect_a_person_in_video
         {
             return Task.Run(async () =>
             {
-                var highlights = await visionService.DetectFacesAsync();
                 ProcessResult processResult = new ProcessResult();
                 processResult.Success = false;
-                if (highlights != null)
+                try
                 {
-                    string outputDir = "E:\\output";
-                    var facesList = await visionService.ExportToImagesAsync(highlights, outputDir);
-                    if (facesList != null)
+                    var highlights = await visionService.DetectFacesAsync();
+
+                    if (highlights != null)
                     {
-                        mainUserInterface.WriteLog(string.Format("Exported {0} faces to {1}.", facesList.Count, outputDir));
-                        processResult.Success = true;
+                        string outputDir = "E:\\output";
+                        var facesList = await visionService.ExportToImagesAsync(highlights, outputDir);
+                        if (facesList != null)
+                        {
+                            mainUserInterface.WriteLog(string.Format("Exported {0} faces to {1}.", facesList.Count, outputDir));
+                            var detectionResults = await visionService.VerifyFacesAsync(outputDir);
+                            if (detectionResults != null)
+                            {
+                                processResult.DetectionResults = detectionResults;
+                                processResult.Success = true;
+                            }
+                        }
+                        else
+                            mainUserInterface.ShowMessageBox("Can not export to " + outputDir, MessageBoxIcon.Error, MessageBoxButtons.OK);
                     }
-                    else
-                        mainUserInterface.ShowMessageBox("Can not export to " + outputDir, MessageBoxIcon.Error, MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    processResult.ErrorMessage = ex.Message;
                 }
                 return processResult;
             });

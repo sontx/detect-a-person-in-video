@@ -10,6 +10,7 @@ using System.Diagnostics;
 using Accord.Video.FFMPEG;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using Microsoft.ProjectOxford.Face;
 
 namespace detect_a_person_in_video
 {
@@ -63,8 +64,68 @@ namespace detect_a_person_in_video
 
         private Bitmap CropBitmap(Bitmap bitmap, Rect rect)
         {
-            return bitmap.Clone(new Rectangle((int)(rect.Left * bitmap.Width), (int)(rect.Top * bitmap.Height), 
+            return bitmap.Clone(new Rectangle((int)(rect.Left * bitmap.Width), (int)(rect.Top * bitmap.Height),
                 (int)(rect.Width * bitmap.Width), (int)(rect.Height * bitmap.Height)), bitmap.PixelFormat);
+        }
+
+        private DetectionResult VerifyFace(FaceServiceClient client, Guid originFace, string face2Path)
+        {
+            using (var fs = new FileStream(face2Path, FileMode.Open, FileAccess.Read))
+            {
+                var facesList = client.DetectAsync(fs).Result;
+                if (facesList != null)
+                {
+                    var face2 = facesList.FirstOrDefault();
+                    if (face2 != null)
+                    {
+                        var verifyResult = client.VerifyAsync(originFace, face2.FaceId).Result;
+                        if (verifyResult.IsIdentical)
+                        {
+                            return new DetectionResult()
+                            {
+                                ExtractFrame = face2Path,
+                                Confidence = (float)verifyResult.Confidence
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        private Guid GetOriginFaceId(FaceServiceClient client)
+        {
+            using (var fs = new FileStream(ImageInputPath, FileMode.Open, FileAccess.Read))
+            {
+                var result = client.DetectAsync(fs).Result;
+                return result.FirstOrDefault().FaceId;
+            }
+        }
+
+        public Task<List<DetectionResult>> VerifyFacesAsync(string facesDir)
+        {
+            return Task.Run(() =>
+            {
+                var client = new FaceServiceClient(FaceApiSubscriptionKey);
+                var originFace = GetOriginFaceId(client);
+                var faceFiles = Directory.GetFiles(facesDir);
+                List<DetectionResult> detectionResults = new List<DetectionResult>();
+                foreach (var faceFile in faceFiles)
+                {
+                    Logable.WriteLog("Verifying " + faceFile);
+                    var result = VerifyFace(client, originFace, faceFile);
+                    if (result != null)
+                    {
+                        detectionResults.Add(result);
+                        Logable.WriteLog("OK! " + result.Confidence);
+                    }
+                    else
+                    {
+                        Logable.WriteLog("NOT!");
+                    }
+                }
+                return detectionResults;
+            });
         }
 
         public Task<List<string>> ExportToImagesAsync(IEnumerable<FrameHighlight> frameHighlights, string outputDir)
@@ -78,7 +139,7 @@ namespace detect_a_person_in_video
                     long currentFrame = 0;
                     int lastTime = -1;
                     foreach (var frameHighlight in frameHighlights)
-                    {   
+                    {
                         int frameTime = (int)frameHighlight.Time;
                         if (lastTime < frameTime)
                         {
@@ -118,7 +179,7 @@ namespace detect_a_person_in_video
         {
             Logable.WriteLog("Start face tracking");
             VideoServiceClient client = new VideoServiceClient(subscriptionKey);
-            
+
             client.Timeout = TimeSpan.FromMinutes(10);
 
             using (FileStream originalStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
@@ -155,7 +216,7 @@ namespace detect_a_person_in_video
             }
             return null;
         }
-        
+
         /// <summary>
         /// This method parses the JSON output, and converts to a sequence of time frames with highlight regions.  
         /// One highlight region reprensents a tracked face in the frame.
@@ -196,7 +257,7 @@ namespace detect_a_person_in_video
                             if (faceRect == null) return invisibleRect;
 
                             // Creates highlight region at the location of the tracked face
-                            return new Rect(new Point(faceRect.X * dpi, faceRect.Y * dpi), 
+                            return new Rect(new Point(faceRect.X * dpi, faceRect.Y * dpi),
                                 new Size(faceRect.Width * dpi, faceRect.Height * dpi));
                         }).ToArray();
 
