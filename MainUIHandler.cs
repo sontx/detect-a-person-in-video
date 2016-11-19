@@ -99,7 +99,9 @@ namespace detect_a_person_in_video
                             }
                         }
                         else
-                            mainUserInterface.ShowMessageBox("Can not export to " + outputFacesDir, MessageBoxIcon.Error, MessageBoxButtons.OK);
+                        {
+                            processResult.ErrorMessage = "Can not export to " + outputFacesDir;
+                        }
                     }
                 }
                 catch (Exception ex)
