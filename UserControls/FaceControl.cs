@@ -19,6 +19,7 @@ namespace detect_a_person_in_video.UserControls
         public FaceControl()
         {
             InitializeComponent();
+            BorderStyle = BorderStyle.FixedSingle
         }
     }
 }

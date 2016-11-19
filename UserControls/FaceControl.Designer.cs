@@ -36,9 +36,9 @@
             // pbxFaceImage
             // 
             this.pbxFaceImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbxFaceImage.Location = new System.Drawing.Point(0, 0);
+            this.pbxFaceImage.Location = new System.Drawing.Point(3, 3);
             this.pbxFaceImage.Name = "pbxFaceImage";
-            this.pbxFaceImage.Size = new System.Drawing.Size(150, 127);
+            this.pbxFaceImage.Size = new System.Drawing.Size(144, 121);
             this.pbxFaceImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxFaceImage.TabIndex = 0;
             this.pbxFaceImage.TabStop = false;
@@ -46,9 +46,9 @@
             // labFaceName
             // 
             this.labFaceName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labFaceName.Location = new System.Drawing.Point(0, 127);
+            this.labFaceName.Location = new System.Drawing.Point(3, 124);
             this.labFaceName.Name = "labFaceName";
-            this.labFaceName.Size = new System.Drawing.Size(150, 23);
+            this.labFaceName.Size = new System.Drawing.Size(144, 23);
             this.labFaceName.TabIndex = 1;
             this.labFaceName.Text = "...";
             this.labFaceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,6 +60,7 @@
             this.Controls.Add(this.pbxFaceImage);
             this.Controls.Add(this.labFaceName);
             this.Name = "FaceControl";
+            this.Padding = new System.Windows.Forms.Padding(3);
             ((System.ComponentModel.ISupportInitialize)(this.pbxFaceImage)).EndInit();
             this.ResumeLayout(false);
 
