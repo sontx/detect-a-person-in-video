@@ -58,11 +58,13 @@ namespace detect_a_person_in_video
         public void DisplayFaceInput(string imagePath)
         {
             pbxFaceInput.ImageLocation = imagePath;
+            pbxFaceInput.Visible = !string.IsNullOrEmpty(imagePath);
         }
 
         public void DisplayVideoInput(string videoPath)
         {
             playerVideoInput.URL = videoPath;
+            playerVideoInput.Visible = !string.IsNullOrEmpty(videoPath);
         }
 
         public DialogResult ShowMessageBox(string message, MessageBoxIcon icon, MessageBoxButtons buttons)

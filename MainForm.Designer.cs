@@ -139,28 +139,29 @@
             // 
             // pbxFaceInput
             // 
-            this.pbxFaceInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxFaceInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbxFaceInput.Image = global::detect_a_person_in_video.Properties.Resources.logo;
-            this.pbxFaceInput.Location = new System.Drawing.Point(3, 3);
+            this.pbxFaceInput.Location = new System.Drawing.Point(6, 6);
             this.pbxFaceInput.Name = "pbxFaceInput";
-            this.pbxFaceInput.Size = new System.Drawing.Size(414, 269);
+            this.pbxFaceInput.Size = new System.Drawing.Size(408, 265);
             this.pbxFaceInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxFaceInput.TabIndex = 6;
             this.pbxFaceInput.TabStop = false;
+            this.pbxFaceInput.Visible = false;
             // 
             // playerVideoInput
             // 
             this.playerVideoInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playerVideoInput.Enabled = true;
-            this.playerVideoInput.Location = new System.Drawing.Point(3, 278);
+            this.playerVideoInput.Location = new System.Drawing.Point(6, 280);
             this.playerVideoInput.Name = "playerVideoInput";
             this.playerVideoInput.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("playerVideoInput.OcxState")));
-            this.playerVideoInput.Size = new System.Drawing.Size(414, 270);
+            this.playerVideoInput.Size = new System.Drawing.Size(408, 265);
             this.playerVideoInput.TabIndex = 7;
+            this.playerVideoInput.Visible = false;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.pbxFaceInput, 0, 0);
