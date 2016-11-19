@@ -80,6 +80,15 @@ namespace detect_a_person_in_video.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to output_faces.
+        /// </summary>
+        internal static string output_dir_name {
+            get {
+                return ResourceManager.GetString("output_dir_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 910555097ba5465fb433572e242ab35a.
         /// </summary>
         internal static string video_api_subscription_key {

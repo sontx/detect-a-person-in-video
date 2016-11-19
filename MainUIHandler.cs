@@ -11,6 +11,7 @@ namespace detect_a_person_in_video
     {
         private readonly IMainUserInterface mainUserInterface;
         private readonly VisionService visionService;
+        private readonly string outputFacesDir;
 
         public string VideoInputPath
         {
@@ -41,6 +42,9 @@ namespace detect_a_person_in_video
             visionService.FaceApiSubscriptionKey = Resources.face_api_subscription_key;
             visionService.VideoApiSubscriptionKey = Resources.video_api_subscription_key;
             visionService.Logable = mainUserInterface;
+            outputFacesDir = Resources.output_dir_name;
+            if (!Directory.Exists(outputFacesDir))
+                Directory.CreateDirectory(outputFacesDir);
         }
 
         public async void Process()
@@ -75,12 +79,11 @@ namespace detect_a_person_in_video
 
                     if (highlights != null)
                     {
-                        string outputDir = "E:\\output";
-                        var facesList = await visionService.ExportToImagesAsync(highlights, outputDir);
+                        var facesList = await visionService.ExportToImagesAsync(highlights, outputFacesDir);
                         if (facesList != null)
                         {
-                            mainUserInterface.WriteLog(string.Format("Exported {0} faces to {1}.", facesList.Count, outputDir));
-                            var detectionResults = await visionService.VerifyFacesAsync(outputDir);
+                            mainUserInterface.WriteLog(string.Format("Exported {0} faces to {1}.", facesList.Count, outputFacesDir));
+                            var detectionResults = await visionService.VerifyFacesAsync(outputFacesDir);
                             if (detectionResults != null)
                             {
                                 processResult.DetectionResults = detectionResults;
@@ -88,7 +91,7 @@ namespace detect_a_person_in_video
                             }
                         }
                         else
-                            mainUserInterface.ShowMessageBox("Can not export to " + outputDir, MessageBoxIcon.Error, MessageBoxButtons.OK);
+                            mainUserInterface.ShowMessageBox("Can not export to " + outputFacesDir, MessageBoxIcon.Error, MessageBoxButtons.OK);
                     }
                 }
                 catch (Exception ex)
