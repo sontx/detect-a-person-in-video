@@ -113,15 +113,23 @@ namespace detect_a_person_in_video
                 foreach (var faceFile in faceFiles)
                 {
                     Logable.WriteLog("Verifying " + faceFile);
-                    var result = VerifyFace(client, originFace, faceFile);
-                    if (result != null)
+                    try
                     {
-                        detectionResults.Add(result);
-                        Logable.WriteLog("OK! " + result.Confidence);
+                        var result = VerifyFace(client, originFace, faceFile);
+
+                        if (result != null)
+                        {
+                            detectionResults.Add(result);
+                            Logable.WriteLog("OK! " + result.Confidence);
+                        }
+                        else
+                        {
+                            Logable.WriteLog("NOT!");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Logable.WriteLog("NOT!");
+                        Logable.WriteLog(ex.Message);
                     }
                 }
                 return detectionResults;
