@@ -153,6 +153,8 @@ namespace detect_a_person_in_video
                         {
                             using (var frameImage = GetBitmap(reader, ref currentFrame, frameTime))
                             {
+                                if (frameImage == null)
+                                    break;
                                 for (int i = 0; i < frameHighlight.HighlightRects.Length; ++i)
                                 {
                                     var rect = frameHighlight.HighlightRects[i];
