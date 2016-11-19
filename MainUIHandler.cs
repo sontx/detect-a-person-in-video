@@ -67,6 +67,12 @@ namespace detect_a_person_in_video
             }
         }
 
+        private void CleanOutputFacesDirectory()
+        {
+            Directory.Delete(outputFacesDir);
+            Directory.CreateDirectory(outputFacesDir);
+        }
+
         private Task<ProcessResult> StartDetectAsync()
         {
             return Task.Run(async () =>
@@ -75,6 +81,8 @@ namespace detect_a_person_in_video
                 processResult.Success = false;
                 try
                 {
+                    CleanOutputFacesDirectory();
+
                     var highlights = await visionService.DetectFacesAsync();
 
                     if (highlights != null)
