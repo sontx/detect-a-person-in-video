@@ -152,7 +152,7 @@ namespace detect_a_person_in_video
                                     {
                                         using (var faceImage = CropBitmap(frameImage, rect))
                                         {
-                                            string faceFilePath = Path.Combine(outputDir, string.Format("{0}_{1}.png", currentFrame, i));
+                                            string faceFilePath = Path.Combine(outputDir, FaceImageHelper.BuildFaceImageName(frameTime, i));
                                             faceImage.Save(faceFilePath);
                                             facesList.Add(faceFilePath);
                                         }

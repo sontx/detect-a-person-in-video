@@ -83,7 +83,20 @@ namespace detect_a_person_in_video
 
         public void DisplayProcessResult(List<DetectionResult> detectionResults)
         {
-            throw new NotImplementedException();
+            Invoke((MethodInvoker)delegate
+            {
+                if (detectionResults == null || detectionResults.Count == 0)
+                {
+                    ShowMessageBox("The face do not appear in the video.", MessageBoxIcon.Information, MessageBoxButtons.OK);
+                }
+                else
+                {
+                    FaceComparatorForm faceComparatorForm = new FaceComparatorForm();
+                    faceComparatorForm.FaceOriginImageSource = mainUIHandler.ImageInputPath;
+                    faceComparatorForm.LoadDetectionResults(detectionResults);
+                    faceComparatorForm.ShowDialog(this);
+                }
+            });
         }
 
         #endregion

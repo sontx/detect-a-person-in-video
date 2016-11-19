@@ -69,8 +69,11 @@ namespace detect_a_person_in_video
 
         private void CleanOutputFacesDirectory()
         {
-            Directory.Delete(outputFacesDir);
-            Directory.CreateDirectory(outputFacesDir);
+            var files = Directory.GetFiles(outputFacesDir);
+            foreach (var file in files)
+            {
+                File.Delete(file);
+            }
         }
 
         private Task<ProcessResult> StartDetectAsync()
