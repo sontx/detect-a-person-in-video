@@ -1,7 +1,5 @@
-﻿using Accord.Video.FFMPEG;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace detect_a_person_in_video
@@ -99,6 +97,6 @@ namespace detect_a_person_in_video
             });
         }
 
-        #endregion
+        #endregion Implements IMainUserInterface Interface
     }
 }

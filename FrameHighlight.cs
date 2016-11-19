@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace detect_a_person_in_video
+﻿namespace detect_a_person_in_video
 {
     internal class FrameHighlight
     {

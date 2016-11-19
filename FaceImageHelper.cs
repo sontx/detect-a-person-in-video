@@ -2,7 +2,7 @@
 
 namespace detect_a_person_in_video
 {
-    static class FaceImageHelper
+    internal static class FaceImageHelper
     {
         public static string BuildFaceImageName(int faceFrameSeconds, int faceId)
         {

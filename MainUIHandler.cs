@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace detect_a_person_in_video
 {
-    class MainUIHandler
+    internal class MainUIHandler
     {
         private readonly IMainUserInterface mainUserInterface;
         private readonly VisionService visionService;

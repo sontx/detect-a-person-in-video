@@ -3,7 +3,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace detect_a_person_in_video
 {
-    static class JsonHelper
+    internal static class JsonHelper
     {
         public static T FromJson<T>(string json)
         {
@@ -19,6 +19,5 @@ namespace detect_a_person_in_video
         {
             return JsonConvert.SerializeObject(FromJson<T>(json), Formatting.Indented);
         }
-        
     }
 }

@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Accord.Video.FFMPEG;
+using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Video;
 using Microsoft.ProjectOxford.Video.Contract;
-using System.IO;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using Accord.Video.FFMPEG;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
-using Microsoft.ProjectOxford.Face;
+using System.Threading.Tasks;
 
 namespace detect_a_person_in_video
 {
-    class VisionService
+    internal class VisionService
     {
         [DllImport("gdi32.dll")]
-        static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
-        enum DeviceCap
+        private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
+
+        private enum DeviceCap
         {
             VERTRES = 10,
             DESKTOPVERTRES = 117
@@ -218,7 +218,7 @@ namespace detect_a_person_in_video
         }
 
         /// <summary>
-        /// This method parses the JSON output, and converts to a sequence of time frames with highlight regions.  
+        /// This method parses the JSON output, and converts to a sequence of time frames with highlight regions.
         /// One highlight region reprensents a tracked face in the frame.
         /// </summary>
         /// <param name="json">JSON output of face tracking result.</param>
