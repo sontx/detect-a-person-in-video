@@ -8,47 +8,19 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace detect_a_person_in_video
 {
     internal class VisionService
     {
-        [DllImport("gdi32.dll")]
-        private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
-
-        private enum DeviceCap
-        {
-            VERTRES = 10,
-            DESKTOPVERTRES = 117
-        }
-
         public ILogable Logable { get; set; }
         public string VideoInputPath { get; set; }
         public string ImageInputPath { get; set; }
         public string VideoApiSubscriptionKey { get; set; }
         public string FaceApiSubscriptionKey { get; set; }
         public TimeSpan QueryWaitTime { get; private set; } = TimeSpan.FromSeconds(20);
-        private readonly float dpi;
-
-        public VisionService()
-        {
-            dpi = GetDpi();
-        }
-
-        private float GetDpi()
-        {
-            Graphics g = Graphics.FromHwnd(IntPtr.Zero);
-            IntPtr desktop = g.GetHdc();
-            int LogicalScreenHeight = GetDeviceCaps(desktop, (int)DeviceCap.VERTRES);
-            int PhysicalScreenHeight = GetDeviceCaps(desktop, (int)DeviceCap.DESKTOPVERTRES);
-
-            float ScreenScalingFactor = (float)PhysicalScreenHeight / (float)LogicalScreenHeight;
-
-            return ScreenScalingFactor;
-        }
-
+                
         private Bitmap GetBitmap(VideoFileReader reader, ref long currentFrame, int timeInSeconds)
         {
             long framesToSkip = reader.FrameRate * timeInSeconds - currentFrame;
@@ -267,8 +239,7 @@ namespace detect_a_person_in_video
                             if (faceRect == null) return invisibleRect;
 
                             // Creates highlight region at the location of the tracked face
-                            return new Rect(new Point(faceRect.X * dpi, faceRect.Y * dpi),
-                                new Size(faceRect.Width * dpi, faceRect.Height * dpi));
+                            return new Rect(new Point(faceRect.X, faceRect.Y), new Size(faceRect.Width , faceRect.Height));
                         }).ToArray();
 
                         yield return new FrameHighlight() { Time = (start + interval * i) / timescale, HighlightRects = rects };
